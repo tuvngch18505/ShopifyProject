@@ -41,9 +41,9 @@ export const BoosterService = {
     },
 
     //delete booster
-    async deleteBooster(id: string) {
+    async deleteBooster(_id: string) {
         try {
-            await getManager().getMongoRepository(BoosterEntity).deleteOne({ id });
+            await getManager().getMongoRepository(BoosterEntity).deleteOne({ _id });
             return true;
         } catch (error) {
             return false;

@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { Column, Entity, ObjectIdColumn } from 'typeorm';
 
 export class BoosterContent {
-    id?: string;
+    id: string;
     goals?: number;
     message?: string;
     progressMessage?: string;
@@ -10,7 +10,7 @@ export class BoosterContent {
 }
 
 export class BoosterDesign {
-    id?: string;
+    id: string;
     position?: string;
     template?: string;
     backgroundColor?: string;
@@ -23,14 +23,9 @@ export class BoosterDesign {
 export class BoosterEntity {
     @ObjectIdColumn()
     _id!: ObjectId;
-
-    // @Column()
-    // shopId!: string;
-
-    // @Column()
-    // boosterId!: string;
+    
     @Column()
-    id!: string;
+    id: string;
 
     @Column()
     boosterName!: string;

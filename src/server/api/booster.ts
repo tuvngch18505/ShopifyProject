@@ -10,18 +10,17 @@ import {
 import { BoosterEntity } from '@services/booster/booster.entity';
 
 
-
-
 const router = new Router();
 
 router.get('/getBoosterById/:id', async (ctx) => {
     try {
         const id = ctx.params.id;
-        
+
         const getBooster = await BoosterService.getBoosterById(id);
 
         ctx.body = getBooster;
-        
+        console.log(ctx.body + ": id");
+
     } catch (error) {
         logger.error(`Error get boosters by id : ${error.stack}`);
         ctx.res.statusCode = 500;
@@ -32,6 +31,7 @@ router.get('/getBooster', async (ctx) => {
     try {
         const boosterResult = await BoosterService.getAllBooster();
         ctx.body = boosterResult;
+        console.log(ctx.body)
 
     } catch (error) {
         logger.error(`Error get boosters: ${error.stack}`);
@@ -42,9 +42,11 @@ router.get('/getBooster', async (ctx) => {
 
 router.post('/createBooster', async (ctx) => {
     try {
+        const { id, boosterName } = ctx.request.body;
 
         const newBooster = new BoosterEntity();
-        newBooster.boosterName = "Booster Name 1"
+        newBooster.id = id;
+        newBooster.boosterName = boosterName;
 
         const result = await BoosterService.createBooster(newBooster);
 
@@ -52,17 +54,20 @@ router.post('/createBooster', async (ctx) => {
 
         console.log(result + " created successfully");
 
-
     } catch (error) {
         logger.error(`Error createBooster: ${error.stack}`);
         ctx.res.statusCode = 500;
     }
 });
 
+
+
 //delete id chưa xong
 router.delete('/boosters/:id', async (ctx) => {
     try {
         const boosterId = ctx.params.id;
+
+
         const result = await BoosterService.deleteBooster(boosterId);
         if (result) {
             ctx.body = { success: true };
@@ -95,7 +100,11 @@ router.put('/boosters/update/:id', async (ctx) => {
     boosterToUpdate.boosterName = newBoosterName;
     await BoosterService.updateBooster(boosterToUpdate);
 
+    console.log(boosterToUpdate + "Updadte success");
+
     ctx.body = { message: `Booster with ID ${id} updated successfully` };
+
+
 })
 
 
