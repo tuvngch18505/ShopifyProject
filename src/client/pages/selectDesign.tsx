@@ -8,6 +8,7 @@ export default function SelectDesign() {
     { label: 'Top', value: 'top' },
     { label: 'Bottom', value: 'bottom' },
   ];
+
   // Const value option template picker
   const optionsTemplate = [
     { label: '1', value: '1' },
@@ -16,12 +17,6 @@ export default function SelectDesign() {
     { label: '4', value: '4' },
     { label: '5', value: '5' },
   ];
-  // Const value option Booster color picker
-  // const [boosterColor, setBColor] = useState({
-  //   hue: 120,
-  //   brightness: 1,
-  //   saturation: 1,
-  // });
 
   // Const value option font picker
   const optionsFont = [
