@@ -1,7 +1,6 @@
-import { Page, LegacyCard, DataTable, FooterHelp, Layout, Inline, Button } from '@shopify/polaris';
+import { Page, LegacyCard, IndexTable, FooterHelp, Layout, Inline, Button, Text } from '@shopify/polaris';
 import { CirclePlusOutlineMinor } from '@shopify/polaris-icons';
-import React from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -11,6 +10,36 @@ export default function Page1() {
   function handleClick() {
     router.push('/secondpage');
   }
+
+  const [data, setData] = useState([]);
+  // use Effect to using fetch to take data from server
+  useEffect(() => {
+    fetch('/api/getBooster')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.log(error));
+  }, []);
+
+  const row = data.map(
+    ({ id, boosterName, status }, index) => (
+      <IndexTable.Row id={id} key={id} position={index}>
+        <IndexTable.Cell>
+          <Text variant="bodyMd" fontWeight="bold" as="span">
+            {id}
+          </Text>
+        </IndexTable.Cell>
+        <IndexTable.Cell>
+          <Text variant="bodyMd" fontWeight="bold" as="span">
+            {boosterName}
+          </Text>
+        </IndexTable.Cell>
+        <IndexTable.Cell>{status}</IndexTable.Cell>
+      </IndexTable.Row>
+    ))
+  const resourceName = {
+    singular: 'customer',
+    plural: 'customers',
+  };
   return (
     <>
       <Page
@@ -22,31 +51,82 @@ export default function Page1() {
         }
         divider
       >
-        <ListData />
+        {/* <ListData /> */}
+        <LegacyCard>
+          <IndexTable
+            resourceName={resourceName}
+            itemCount={data.length}
+            headings={[
+              {title: 'No.'},
+              { title: 'Booster Name' },
+              { title: 'Status' },
+            ]}
+            selectable={false}
+          >
+            {row}
+          </IndexTable>
+
+        </LegacyCard>
       </Page>
       <Footer></Footer>
     </>
   );
 }
 
-// Thêm dữ liệu vào rows
-const rows = [
-  ['Booster1', 'Published'],
-  ['Booster2', 'Unpublished'],
-];
 
-function ListData() {
-  return (
-    <LegacyCard>
-      <DataTable
-        stickyHeader
-        columnContentTypes={['text', 'text']}
-        headings={['Your booster', 'Status']}
-        rows={rows}
-      />
-    </LegacyCard>
-  );
-}
+
+// function ListData() {
+//   const [data, setData] = useState([])
+
+//   useEffect(() => {
+//     fetch('https://tuvn.dev.hamsa.site/api/getBooster')
+//       .then((response) => response.json())
+//       .then((data) => {
+//         if (Array.isArray(data)) { // Check if the fetched data is an array
+//           setData(data);
+//         } else {
+//           console.error('Fetched data is not an array:', data);
+//         }
+//       })
+//       .catch((error) => console.error(error))
+//   }, [])
+
+
+
+//   return (
+//     <LegacyCard>
+//       {/* <DataTable
+//       stickyHeader
+//       columnContentTypes={['text','text','text']}
+//       headings={['ID', 'Booster Name', 'Status']}
+//       rows={data}
+//     /> */
+//         <table>
+//           <thead>
+//             <tr>
+//               <th>ID</th>
+//               <th>Booster Name</th>
+//               <th>Status</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {data.map((item) => {
+//               <tr>
+
+//                 <td> {item.id}</td>
+//                 <td> {item.boosterName}</td>
+//                 <td> {item.status}</td>
+
+//               </tr>
+//             })}
+//           </tbody>
+//         </table>
+
+//       }
+//     </LegacyCard>
+//   );
+
+// }
 
 function Footer() {
   return (
