@@ -1,13 +1,4 @@
-import {
-  Page,
-  LegacyCard,
-  DataTable,
-  FooterHelp,
-  Text,
-  Layout,
-  Inline,
-  Button,
-} from '@shopify/polaris';
+import { Page, LegacyCard, DataTable, FooterHelp, Layout, Inline, Button } from '@shopify/polaris';
 import { CirclePlusOutlineMinor } from '@shopify/polaris-icons';
 import React from 'react';
 

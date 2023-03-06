@@ -1,6 +1,7 @@
 import { Select, ColorPicker, Page, Layout } from '@shopify/polaris';
 import { useState, useCallback } from 'react';
 import { Form, FormLayout, TextField } from '@shopify/polaris';
+import PopoverWithActionListExample from './colorPop';
 
 export default function SelectDesign() {
   // Const value option position picker
@@ -61,41 +62,40 @@ export default function SelectDesign() {
 
   return (
     <Page narrowWidth>
-      <Layout>
-        <Form onSubmit={handleSubmit}>
-          <FormLayout>
-            <Select
-              label="Positioning"
-              options={optionsPosition}
-              onChange={handlePositionChange}
-              value={positionValue}
-            />
-            <Select
-              label="Template"
-              options={optionsTemplate}
-              onChange={handleTemplateChange}
-              value={templateValue}
-            />
-            <p>Background-color</p>
-            {/* <ColorPopover></ColorPopover> */}
-            <ColorPicker onChange={handleBackgroundColorChange} color={backgroundColorValue} />
-            <Select
-              label="Font"
-              options={optionsFont}
-              onChange={handleFontChange}
-              value={fontValue}
-            />
-            <TextField
-              label="Font size"
-              type="number"
-              value={fontSizeValue}
-              onChange={handleFontSizeChange}
-              autoComplete="off"
-            />
-            <ColorPicker onChange={handleFontColorChange} color={fontColorValue} />
-          </FormLayout>
-        </Form>
-      </Layout>
+      <Form onSubmit={handleSubmit}>
+        <FormLayout>
+          <Select
+            label="Positioning"
+            options={optionsPosition}
+            onChange={handlePositionChange}
+            value={positionValue}
+          />
+          <Select
+            label="Template"
+            options={optionsTemplate}
+            onChange={handleTemplateChange}
+            value={templateValue}
+          />
+          <p>Background-color</p>
+          {/* Test Pop color */}
+          <PopoverWithActionListExample />
+          {/* <ColorPicker onChange={handleBackgroundColorChange} color={backgroundColorValue} /> */}
+          <Select
+            label="Font"
+            options={optionsFont}
+            onChange={handleFontChange}
+            value={fontValue}
+          />
+          <TextField
+            label="Font size"
+            type="number"
+            value={fontSizeValue}
+            onChange={handleFontSizeChange}
+            autoComplete="off"
+          />
+          <ColorPicker onChange={handleFontColorChange} color={fontColorValue} />
+        </FormLayout>
+      </Form>
     </Page>
   );
 }
