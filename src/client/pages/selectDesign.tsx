@@ -1,7 +1,7 @@
-import { Select, ColorPicker, Page, Layout } from '@shopify/polaris';
+import { Select, ColorPicker, Page, Layout, Button, Popover } from '@shopify/polaris';
 import { useState, useCallback } from 'react';
 import { Form, FormLayout, TextField } from '@shopify/polaris';
-import PopoverWithActionListExample from './colorPop';
+import PopoverForBoosterColor from './colorPop';
 
 export default function SelectDesign() {
   // Const value option position picker
@@ -54,7 +54,7 @@ export default function SelectDesign() {
   const handleSubmit = useCallback((_event) => {
     setPosition('');
     setTemplate('');
-    setBackgroundColor;
+    setBackgroundColor('');
     setFont('');
     setFontColor;
     setFontSize('');
@@ -78,8 +78,8 @@ export default function SelectDesign() {
           />
           <p>Background-color</p>
           {/* Test Pop color */}
-          <PopoverWithActionListExample />
-          {/* <ColorPicker onChange={handleBackgroundColorChange} color={backgroundColorValue} /> */}
+          {/* <PopoverForBoosterColor /> */}
+          <ColorPicker onChange={handleBackgroundColorChange} color={backgroundColorValue} />
           <Select
             label="Font"
             options={optionsFont}

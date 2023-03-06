@@ -1,19 +1,26 @@
-import { Popover, Button } from '@shopify/polaris';
+import { Popover, Button, Box } from '@shopify/polaris';
 import { useState, useCallback } from 'react';
 
 import { ColorPicker } from '@shopify/polaris';
 
-function ColorPickerExample() {
-  const [color, setColor] = useState({
+function BoosterColorPicker() {
+  const [backgroundColorValue, setBackgroundColor] = useState({
     hue: 120,
     brightness: 1,
     saturation: 1,
   });
-  return <ColorPicker onChange={setColor} color={color} />;
+
+  const handleBackgroundColorChange = useCallback((value) => setBackgroundColor(value), []);
+
+  const handleSubmit = useCallback((_event) => {
+    setBackgroundColor;
+  }, []);
+
+  return <ColorPicker onChange={handleBackgroundColorChange} color={backgroundColorValue} />;
 }
 
-export default function PopoverWithActionListExample() {
-  const [popoverActive, setPopoverActive] = useState(true);
+export default function PopoverForBoosterColor() {
+  const [popoverActive, setPopoverActive] = useState(false);
 
   const togglePopoverActive = useCallback(
     () => setPopoverActive((popoverActive) => !popoverActive),
@@ -21,7 +28,11 @@ export default function PopoverWithActionListExample() {
   );
 
   //   Cần làm activator
-  const activator = <Button onClick={togglePopoverActive}></Button>;
+  const activator = (
+    <Box>
+      <Button onClick={togglePopoverActive}></Button>
+    </Box>
+  );
 
   return (
     <div style={{}}>
@@ -31,7 +42,7 @@ export default function PopoverWithActionListExample() {
         autofocusTarget="none"
         onClose={togglePopoverActive}
       >
-        <ColorPickerExample />
+        <BoosterColorPicker />
       </Popover>
     </div>
   );
