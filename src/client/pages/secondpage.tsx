@@ -56,7 +56,7 @@ function TabsExample() {
   }
   return (
     <>
-      <div style={{ width: 189 }}>
+      <div style={{ width: 190 }}>
         <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange}></Tabs>
       </div>
       {/* Booster */}

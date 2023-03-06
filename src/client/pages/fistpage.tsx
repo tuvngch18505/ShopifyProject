@@ -1,14 +1,27 @@
 import { Page, LegacyCard, DataTable, FooterHelp, Layout, Inline, Button } from '@shopify/polaris';
 import { CirclePlusOutlineMinor } from '@shopify/polaris-icons';
 import React from 'react';
+import Link from 'next/link';
+
+import { useRouter } from 'next/router';
 
 export default function Page1() {
+  const router = useRouter();
+
+  function handleClick() {
+    router.push('/secondpage');
+  }
   return (
     <>
       <Page
         title="Greenwich Freeshipping Booster"
         primaryAction={
-          <Button icon={CirclePlusOutlineMinor} url="/secondpage" primary>
+          // <Link href="/secondpage">
+          //   <Button icon={CirclePlusOutlineMinor} primary>
+          //     Create new booster
+          //   </Button>
+          // </Link>
+          <Button icon={CirclePlusOutlineMinor} primary onClick={handleClick}>
             Create new booster
           </Button>
         }
