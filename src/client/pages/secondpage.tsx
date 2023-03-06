@@ -1,6 +1,6 @@
 import { Box, LegacyCard, Page, Badge, Button, ProgressBar, Layout } from '@shopify/polaris';
 import React from 'react';
-import { ButtonGroup } from '@shopify/polaris';
+import Booster from './booster';
 import InsertContent from './insertContent';
 import { Tabs } from '@shopify/polaris';
 import { useState, useCallback } from 'react';
@@ -49,9 +49,9 @@ function TabsExample() {
   ];
   function CheckTab() {
     if ((tabs[selected].id = 'content-id')) {
-      return <InsertContent />;
-    } else {
       return <SelectDesign />;
+    } else {
+      return <InsertContent />;
     }
   }
   return (
@@ -60,18 +60,15 @@ function TabsExample() {
         <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange}></Tabs>
       </div>
       {/* Booster */}
-      <div style={{ width: 930, height: 30 }}>
-        <Box position="sticky">
-          <Layout.Section>
-            <ProgressBar progress={100} size="large" color="success" />
-          </Layout.Section>
-        </Box>
-      </div>
+      <Booster />
       {/*  */}
       <div style={{}}>
+        <br />
+        <br />
         <Box>
           <LegacyCard>
             <CheckTab />
+            <br />
           </LegacyCard>
         </Box>
       </div>
