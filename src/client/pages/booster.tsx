@@ -6,7 +6,7 @@ export default function Booster() {
     <div style={{ width: 930, height: 30 }}>
       <Box position="sticky">
         <Layout.Section>
-          <ProgressBar progress={100} size="large" color="success" />
+          <ProgressBar progress={50} size="large" color="success" />
         </Layout.Section>
       </Box>
     </div>

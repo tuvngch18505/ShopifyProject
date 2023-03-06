@@ -48,10 +48,10 @@ function TabsExample() {
     },
   ];
   function CheckTab() {
-    if ((tabs[selected].id = 'content-id')) {
-      return <SelectDesign />;
-    } else {
+    if (tabs[selected].id == 'content-tab') {
       return <InsertContent />;
+    } else {
+      return <SelectDesign />;
     }
   }
   return (

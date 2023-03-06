@@ -21,7 +21,7 @@ export default function PopoverWithActionListExample() {
   );
 
   //   Cần làm activator
-  const activator = <Button></Button>;
+  const activator = <Button onClick={togglePopoverActive}></Button>;
 
   return (
     <div style={{}}>

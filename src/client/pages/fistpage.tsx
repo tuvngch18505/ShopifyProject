@@ -16,11 +16,6 @@ export default function Page1() {
       <Page
         title="Greenwich Freeshipping Booster"
         primaryAction={
-          // <Link href="/secondpage">
-          //   <Button icon={CirclePlusOutlineMinor} primary>
-          //     Create new booster
-          //   </Button>
-          // </Link>
           <Button icon={CirclePlusOutlineMinor} primary onClick={handleClick}>
             Create new booster
           </Button>
