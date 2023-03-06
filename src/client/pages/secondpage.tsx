@@ -40,8 +40,8 @@ function Page2() {
           <Layout>
             <div style={{ width: '250px' }}>
               <LegacyCard sectioned>
-                <InsertContent />
-                {/* <SelectDesign /> */}
+                {/* <InsertContent /> */}
+                <SelectDesign />
               </LegacyCard>
             </div>
           </Layout>
