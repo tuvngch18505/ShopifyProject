@@ -22,28 +22,7 @@ function Page2() {
       <div>
         <Layout sectioned>
           <Layout>
-            <ButtonGroup>
-              {/* Switch button Tab https://polaris.shopify.com/components/navigation/tabs */}
-              <Button id="content">Content</Button>
-              <Button id="design">Design</Button>
-            </ButtonGroup>
-          </Layout>
-          <Box position="sticky">
-            <Layout.Section>
-              <div style={{ width: 930, height: 30 }}>
-                <ProgressBar progress={100} size="large" color="success" />
-              </div>
-            </Layout.Section>
-          </Box>
-          <br />
-          <br />
-          <Layout>
-            <div style={{ width: '250px' }}>
-              <LegacyCard sectioned>
-                {/* <InsertContent /> */}
-                <SelectDesign />
-              </LegacyCard>
-            </div>
+            <TabsExample></TabsExample>
           </Layout>
         </Layout>
       </div>

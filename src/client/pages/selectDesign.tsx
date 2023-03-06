@@ -50,7 +50,7 @@ export default function SelectDesign() {
   const handleFontColorChange = useCallback((value) => setFontColor(value), []);
   const handleFontSizeChange = useCallback((value) => setFontSize(value), []);
 
-  // Const of Form Comnpoent
+  // Const of Form Component
   const handleSubmit = useCallback((_event) => {
     setPosition('');
     setTemplate('');
