@@ -36,6 +36,9 @@ export class BoosterEntity {
     boosterName!: string;
 
     @Column()
+    status: string;
+
+    @Column()
     content!: BoosterContent
 
     @Column()

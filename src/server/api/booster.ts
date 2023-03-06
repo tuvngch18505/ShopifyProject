@@ -12,6 +12,7 @@ import { BoosterEntity } from '@services/booster/booster.entity';
 
 const router = new Router();
 
+//done
 router.get('/getBoosterById/:id', async (ctx) => {
     try {
         const id = ctx.params.id;
@@ -27,6 +28,7 @@ router.get('/getBoosterById/:id', async (ctx) => {
     }
 });
 
+//done
 router.get('/getBooster', async (ctx) => {
     try {
         const boosterResult = await BoosterService.getAllBooster();
@@ -40,13 +42,15 @@ router.get('/getBooster', async (ctx) => {
 
 });
 
+//done
 router.post('/createBooster', async (ctx) => {
     try {
-        const { id, boosterName } = ctx.request.body;
+        const { id, boosterName, status } = ctx.request.body;
 
         const newBooster = new BoosterEntity();
         newBooster.id = id;
         newBooster.boosterName = boosterName;
+        newBooster.status = status;
 
         const result = await BoosterService.createBooster(newBooster);
 
@@ -66,7 +70,6 @@ router.post('/createBooster', async (ctx) => {
 router.delete('/boosters/:id', async (ctx) => {
     try {
         const boosterId = ctx.params.id;
-
 
         const result = await BoosterService.deleteBooster(boosterId);
         if (result) {
@@ -88,7 +91,7 @@ router.delete('/boosters/:id', async (ctx) => {
 
 router.put('/boosters/update/:id', async (ctx) => {
     const id = ctx.params.id;
-    const newBoosterName = ctx.request.body.newBoosterName;
+    const { boosterName,  status} = ctx.request.body; // extract boosterName property
     const boosterToUpdate = await BoosterService.getBoosterById(id);
 
     if (!boosterToUpdate) {
@@ -97,14 +100,13 @@ router.put('/boosters/update/:id', async (ctx) => {
         return;
     }
 
-    boosterToUpdate.boosterName = newBoosterName;
+    boosterToUpdate.boosterName = boosterName; // update boosterName property
+    boosterToUpdate.status = status; // update status property
     await BoosterService.updateBooster(boosterToUpdate);
 
-    console.log(boosterToUpdate + "Updadte success");
+    console.log(`${boosterToUpdate} Update success`);
 
     ctx.body = { message: `Booster with ID ${id} updated successfully` };
-
-
 })
 
 

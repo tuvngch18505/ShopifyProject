@@ -21,6 +21,8 @@ export const BoosterService = {
         }
     },
 
+    //using fetch to client to server
+    
     //create Booster
     async createBooster(data: BoosterEntity){
         try{
