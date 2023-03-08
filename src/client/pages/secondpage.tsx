@@ -1,10 +1,10 @@
 import { Box, LegacyCard, Page, Badge, Button, ProgressBar, Layout } from '@shopify/polaris';
 import React from 'react';
-import Booster from './boosterBar';
-import InsertContent from './insertContent';
+import Booster from './boosters/boosterBar';
+import InsertContent from './boosters/insertContent';
 import { Tabs } from '@shopify/polaris';
 import { useState, useCallback } from 'react';
-import SelectDesign from './selectDesign';
+import SelectDesign from './boosters/selectDesign';
 
 function Page2() {
   return (

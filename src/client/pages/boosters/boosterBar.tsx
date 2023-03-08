@@ -6,7 +6,8 @@ export default function Booster() {
     <div style={{ width: 930, height: 30, position: '-webkit-sticky', top: 0, color: 'blue' }}>
       <Box position="sticky">
         <Layout.Section>
-          <ProgressBar progress={50} size="large" />
+          <ProgressBar progress={50} size="large" animated ariaLabelledBy="Loadding........"/> 
+                  
         </Layout.Section>
       </Box>
     </div>

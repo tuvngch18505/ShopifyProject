@@ -1,6 +1,7 @@
-import { Page, Form, FormLayout, TextField } from '@shopify/polaris';
+import { Page, Form, FormLayout, TextField, Card, LegacyCard } from '@shopify/polaris';
 import React from 'react';
 import { useState, useCallback } from 'react';
+
 
 function InsertContent() {
   const [boostersname, setBoostersname] = useState('');
@@ -23,16 +24,19 @@ function InsertContent() {
     setGoalreachedmessage('');
   }, []);
   return (
-    <Page narrowWidth>
+    <Page fullWidth>
       <Form onSubmit={handleSubmit}>
         <FormLayout>
-          <TextField
-            value={boostersname}
-            onChange={handleBoosterNameChange}
-            label="Booster name"
-            type="text"
-            autoComplete="off"
-          />
+          <LegacyCard.Section>
+            <TextField
+              value={boostersname}
+              onChange={handleBoosterNameChange}
+              label="Booster name"
+              type="text"
+              autoComplete="off"
+            />
+          </LegacyCard.Section>
+
           <TextField
             value={goal}
             onChange={handleGoalChange}

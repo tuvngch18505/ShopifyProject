@@ -19,7 +19,7 @@ export default function Page1() {
   const router2 = useRouter();
 
   function handleClickCreateBooster() {
-    router.push('/secondpage');
+    router.push('boosters/create.booster');
   }
 
   function handleClickEditBooster() {
@@ -68,9 +68,7 @@ export default function Page1() {
             headings={[{ title: 'No.' }, { title: 'Booster Name' }, { title: 'Status' }]}
             selectable={false}
           >
-            <Link monochrome removeUnderline onClick={handleClickEditBooster}>
-              {row}
-            </Link>
+            {row}
           </IndexTable>
         </LegacyCard>
       </Page>
