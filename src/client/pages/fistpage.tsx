@@ -1,4 +1,14 @@
-import { Page, LegacyCard, IndexTable, FooterHelp, Layout, Inline, Button, Text } from '@shopify/polaris';
+import {
+  Page,
+  LegacyCard,
+  IndexTable,
+  FooterHelp,
+  Layout,
+  Inline,
+  Button,
+  Text,
+  Link,
+} from '@shopify/polaris';
 import { CirclePlusOutlineMinor } from '@shopify/polaris-icons';
 import React, { useState, useEffect } from 'react';
 
@@ -6,46 +16,46 @@ import { useRouter } from 'next/router';
 
 export default function Page1() {
   const router = useRouter();
+  const router2 = useRouter();
 
-  function handleClick() {
+  function handleClickCreateBooster() {
     router.push('/secondpage');
+  }
+
+  function handleClickEditBooster() {
+    router2.push('/editBooster');
   }
 
   const [data, setData] = useState([]);
   // use Effect to using fetch to take data from server
   useEffect(() => {
     fetch('/api/getBooster')
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.log(error));
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.log(error));
   }, []);
 
-  const row = data.map(
-    ({ id, boosterName, status }, index) => (
-      <IndexTable.Row id={id} key={id} position={index}>
-        <IndexTable.Cell>
-          <Text variant="bodyMd" fontWeight="bold" as="span">
-            {id}
-          </Text>
-        </IndexTable.Cell>
-        <IndexTable.Cell>
-          <Text variant="bodyMd" fontWeight="bold" as="span">
-            {boosterName}
-          </Text>
-        </IndexTable.Cell>
-        <IndexTable.Cell>{status}</IndexTable.Cell>
-      </IndexTable.Row>
-    ))
-  const resourceName = {
-    singular: 'customer',
-    plural: 'customers',
-  };
+  const row = data.map(({ id, boosterName, status }, index) => (
+    <IndexTable.Row id={id} key={id} position={index}>
+      <IndexTable.Cell>
+        <Text variant="bodyMd" fontWeight="bold" as="span">
+          {id}
+        </Text>
+      </IndexTable.Cell>
+      <IndexTable.Cell>
+        <Text variant="bodyMd" fontWeight="bold" as="span">
+          {boosterName}
+        </Text>
+      </IndexTable.Cell>
+      <IndexTable.Cell>{status}</IndexTable.Cell>
+    </IndexTable.Row>
+  ));
   return (
     <>
       <Page
         title="Greenwich Freeshipping Booster"
         primaryAction={
-          <Button icon={CirclePlusOutlineMinor} primary onClick={handleClick}>
+          <Button icon={CirclePlusOutlineMinor} primary onClick={handleClickCreateBooster}>
             Create new booster
           </Button>
         }
@@ -54,26 +64,20 @@ export default function Page1() {
         {/* <ListData /> */}
         <LegacyCard>
           <IndexTable
-            resourceName={resourceName}
             itemCount={data.length}
-            headings={[
-              {title: 'No.'},
-              { title: 'Booster Name' },
-              { title: 'Status' },
-            ]}
+            headings={[{ title: 'No.' }, { title: 'Booster Name' }, { title: 'Status' }]}
             selectable={false}
           >
-            {row}
+            <Link monochrome removeUnderline onClick={handleClickEditBooster}>
+              {row}
+            </Link>
           </IndexTable>
-
         </LegacyCard>
       </Page>
       <Footer></Footer>
     </>
   );
 }
-
-
 
 // function ListData() {
 //   const [data, setData] = useState([])
@@ -90,8 +94,6 @@ export default function Page1() {
 //       })
 //       .catch((error) => console.error(error))
 //   }, [])
-
-
 
 //   return (
 //     <LegacyCard>

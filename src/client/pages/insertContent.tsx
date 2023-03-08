@@ -9,6 +9,12 @@ function InsertContent() {
   const [progressmessage, setProgressmessage] = useState('');
   const [goalreachedmessage, setGoalreachedmessage] = useState('');
 
+  const handleBoosterNameChange = useCallback((value) => setBoostersname(value), []);
+  const handleGoalChange = useCallback((value) => setGoal(value), []);
+  const handleMessageChange = useCallback((value) => setMessage(value), []);
+  const handleProgressMessageChange = useCallback((value) => setProgressmessage(value), []);
+  const handleGoalReachedMessageChange = useCallback((value) => setGoalreachedmessage(value), []);
+
   const handleSubmit = useCallback((_event) => {
     setBoostersname('');
     setGoal('');
@@ -16,13 +22,6 @@ function InsertContent() {
     setProgressmessage('');
     setGoalreachedmessage('');
   }, []);
-
-  const handleBoosterNameChange = useCallback((value) => setBoostersname(value), []);
-  const handleGoalChange = useCallback((value) => setGoal(value), []);
-  const handleMessageChange = useCallback((value) => setMessage(value), []);
-  const handleProgressMessageChange = useCallback((value) => setProgressmessage(value), []);
-  const handleGoalReachedMessageChange = useCallback((value) => setGoalreachedmessage(value), []);
-
   return (
     <Page narrowWidth>
       <Form onSubmit={handleSubmit}>

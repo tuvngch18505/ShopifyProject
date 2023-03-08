@@ -54,7 +54,7 @@ export default function SelectDesign() {
   const handleSubmit = useCallback((_event) => {
     setPosition('');
     setTemplate('');
-    setBackgroundColor('');
+    setBackgroundColor;
     setFont('');
     setFontColor;
     setFontSize('');

@@ -6,7 +6,7 @@ import { Tabs } from '@shopify/polaris';
 import { useState, useCallback } from 'react';
 import SelectDesign from './selectDesign';
 
-function Page2() {
+function EditBooster() {
   return (
     <Page
       title="Booster name"
@@ -16,7 +16,7 @@ function Page2() {
           Save
         </Button>
       }
-      secondaryActions={[{ content: 'Publish' }]}
+      secondaryActions={[{ content: 'Publish' }, { content: 'Delete', destructive: true }]}
       divider
     >
       <div>
@@ -32,7 +32,7 @@ function Page2() {
   );
 }
 
-export default Page2;
+export default EditBooster;
 
 // function TabsExample() {
 //   const [selected, setSelected] = useState(0);
