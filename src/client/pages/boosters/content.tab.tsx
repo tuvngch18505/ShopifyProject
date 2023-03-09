@@ -8,9 +8,12 @@ import {
     Text,
     TextField,
     ColorPicker,
+    Badge,
+    Button,
     Select,
     Inline,
 } from '@shopify/polaris';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import React from 'react';
 import PopoverForBoosterColor from './colorPop';
 import { useState, useCallback } from 'react';
@@ -73,8 +76,8 @@ function Content() {
         setFontSize('');
     }, []);
 
-    const [boostersname, setBoostersname] = useState('Values Order');
-    const [goal, setGoal] = useState('');
+    const [boostersname, setBoostersname] = useState('Order values booster');
+    const [goal, setGoal] = useState(0);
     const [message, setMessage] = useState('');
     const [progressmessage, setProgressmessage] = useState('');
     const [goalreachedmessage, setGoalreachedmessage] = useState('');
@@ -87,15 +90,32 @@ function Content() {
 
     const handleSubmit = useCallback((_event) => {
         setBoostersname('');
-        setGoal('');
+        setGoal(0);
         setMessage('');
         setProgressmessage('');
         setGoalreachedmessage('');
     }, []);
 
     return (
-        <Page narrowWidth>
+        <Page
+            breadcrumbs={[{ content: 'booster', url: '/' }]}
+            title={boostersname}
+            titleMetadata={<Badge status="new">Unpublished</Badge>}
+            primaryAction={
+                <Button primary submit>
+                    Save
+                </Button>
+            }
+            secondaryActions={[{ content: 'Publish' }]}
+            divider
+        >
             <Layout>
+                <div className="progress">
+                    <div className="progress-bar" role="progressbar" aria-valuenow="70"
+                        aria-valuemin="0" aria-valuemax="100" style={{width:"70%"}}>
+                        <span className="sr-only">70% Complete</span>
+                    </div>
+                </div>
                 <Layout.Section oneThird>
                     <Form onSubmit={handleSubmit}>
                         <LegacyCard title="Content" >
@@ -111,6 +131,7 @@ function Content() {
                                     label="Booster name"
                                     type="text"
                                     autoComplete="off"
+
                                 />
                                 <br />
                                 <Text color="subdued" as="span" >
@@ -235,7 +256,11 @@ function Content() {
                 <br />
                 <br />
             </Layout>
-        </Page>
+
+
+        </Page >
+
+
 
     )
 }
