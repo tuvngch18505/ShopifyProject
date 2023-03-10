@@ -12,6 +12,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { I18nContext, I18nManager } from '@shopify/react-i18n';
 import enTranslations from '@shopify/polaris/locales/en.json';
 import jaTranslations from '@shopify/polaris/locales/ja.json';
+import '../assets/style.css'
 
 const { SHOPIFY_API_KEY } = getConfig().publicRuntimeConfig;
 

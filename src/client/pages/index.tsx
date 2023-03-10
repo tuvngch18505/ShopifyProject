@@ -12,9 +12,7 @@ const Index = ({ i18n }: IndexPropsType) => {
   const t = (text: string) => i18n.translate(text);
 
   return (
-    <Page>
-      <Page1 />
-    </Page>
+    <Page1 />
   );
 };
 

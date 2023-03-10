@@ -1,0 +1,19 @@
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  padding: 3px;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar-fill {
+  display: block;
+  height: 30px;
+  background-color: white;
+  border-radius: 3px;
+  text-align: center;
+  transition: width 500ms ease-in-out;
+  font-size: large;
+  color: black;
+  align-items: center;
+}

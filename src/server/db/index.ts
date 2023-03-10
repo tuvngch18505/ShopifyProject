@@ -4,7 +4,6 @@ import { ShopsEntity } from '@services/shop/shop.entity';
 import { SessionsEntity } from '@services/session/session.entity';
 import logger from '@utils/logger';
 import { BoosterEntity } from '@services/booster/booster.entity';
-import { ProductEntity } from '@services/product/product.entity';
 
 export const connectDatabase = async (): Promise<boolean> => {
   try {
@@ -15,7 +14,7 @@ export const connectDatabase = async (): Promise<boolean> => {
       username: config.DB_USERNAME,
       password: config.DB_PASSWORD,
       database: config.DB_DATABASE_NAME,
-      entities: [ShopsEntity, SessionsEntity, BoosterEntity, ProductEntity],
+      entities: [ShopsEntity, SessionsEntity, BoosterEntity],
       url: config.DB_URL,
       useUnifiedTopology: true,
     });
