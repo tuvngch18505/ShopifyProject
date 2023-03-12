@@ -42,7 +42,8 @@ function Content() {
     }, []);
 
     return (
-        <Page narrowWidth>
+        <Page 
+        narrowWidth>
 
             <Layout>
                 <Layout.Section >

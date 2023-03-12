@@ -29,12 +29,12 @@ function CreateBooster() {
             {
                 id: 'design-tab',
                 content: 'Design',
-            }
+            },
+            
         ];
 
-
         return (
-            <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange} fitted>
+            <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange} >
                 <br></br>
                 <div className="progress">
                     <div className="progress-bar">
@@ -61,9 +61,7 @@ function CreateBooster() {
                     </Button>
                 }
                 secondaryActions={[{ content: 'Publish' }]}
-                divider
                 fullWidth
-
             >
 
                 <Tab />
