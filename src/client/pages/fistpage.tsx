@@ -29,7 +29,7 @@ export default function Page1() {
   const [data, setData] = useState([]);
   // use Effect to using fetch to take data from server
   useEffect(() => {
-    fetch('/api/getBooster')
+    fetch('/api/boosters')
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.log(error));
