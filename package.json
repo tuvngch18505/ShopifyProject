@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "Shopify's node app for CLI tool",
   "scripts": {
+    "shopify": "shopify",
     "test": "jest",
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "cross-env NEXT_TELEMETRY_DISABLED=1 next build src/client && rimraf dist && tsc",
     "start": "cross-env NODE_ENV=production node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/web.app.js",
-    "lint": "prettier --write ."
+    "lint": "prettier --write .",
+    "info": "shopify app info",
+    "generate": "shopify app generate",
+    "deploy": "shopify app deploy"
   },
   "repository": {
     "type": "git",
@@ -28,6 +32,8 @@
     "@shopify/app-bridge-utils": "^2.0.2",
     "@shopify/koa-shopify-auth": "^4.1.2",
     "@shopify/polaris": "^10.31.0",
+    "@shopify/app": "^3",
+    "@shopify/cli": "^3",
     "@shopify/react-i18n": "^6.3.8",
     "@types/koa-router": "^7.4.4",
     "apollo-boost": "^0.4.9",
