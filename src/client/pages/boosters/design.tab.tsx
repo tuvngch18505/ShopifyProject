@@ -94,39 +94,48 @@ function Design() {
                     <Form onSubmit={handleSubmit}>
                         <LegacyCard title="Design" >
                             <LegacyCard.Section>
-                                <Text color="subdued" as="span" alignment="center"  >
-                                    Fill information of content
-                                </Text>
                             </LegacyCard.Section>
-                            <LegacyCard.Section>
+                            <LegacyCard.Section title="Positioning">
                                 <Select
-                                    label="Positioning"
                                     options={optionsPosition}
                                     onChange={handlePositionChange}
                                     value={positionValue}
                                 />
                             </LegacyCard.Section>
-                            <LegacyCard.Section>
+                            <LegacyCard.Section title="Template">
                                 <Select
-                                    label="Template"
+
                                     options={optionsTemplate}
                                     onChange={handleTemplateChange}
                                     value={templateValue}
                                 />
                             </LegacyCard.Section>
-                            <LegacyCard.Section>
-                                <p>Background-color</p>
-                                {/* Test Pop color */}
+                            <LegacyCard.Section title="Card">
+                                {/* <div style={{display:"inline-block", margin: "0", padding: "0",  width:"40px", height:"200px"}}>
                                 <PopoverForBoosterColor />
-                                {/* Lấy mã mầu từ popover */}
-                                <TextField
-                                    label="Color"
+                                <TextField 
                                     value='Lấy mã mẫu từ pop over'
                                     type="text"
                                     onChange={handleFontSizeChange}
                                     autoComplete="off"
                                 />
-                                {/* <ColorPicker onChange={handleBackgroundColorChange} color={backgroundColorValue} /> */}
+                            </div> */}
+                                <div className="Box" style={{display: "inline"}}>
+                                    <div className='Box-color' style={{ width: "48px", height: "36px", padding: "0", margin: "0"}}>
+                                        <Button> </Button>
+                                    </div>
+                                    <div className="Box-input">
+                                        <TextField
+                                            value='Lấy mã mẫu từ pop over'
+                                            type="text"
+                                            onChange={handleFontSizeChange}
+                                            autoComplete="off"
+                                        />
+                                    </div>
+                                </div>
+
+
+
 
                             </LegacyCard.Section>
 

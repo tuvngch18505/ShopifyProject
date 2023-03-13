@@ -16,10 +16,14 @@ import {
 import React from 'react';
 import PopoverForBoosterColor from './colorPop';
 import { useState, useCallback } from 'react';
+import { createBooster } from '../../fetchApi';
 
 
 function Content() {
 
+    const [formData, setForm] = useState(
+        
+    )
 
     const [boostersname, setBoostersname] = useState('Order values booster');
     const [goal, setGoal] = useState(0);
@@ -34,6 +38,7 @@ function Content() {
     const handleGoalReachedMessageChange = useCallback((value) => setGoalreachedmessage(value), []);
 
     const handleSubmit = useCallback((_event) => {
+
         setBoostersname('');
         setGoal(0);
         setMessage('');
@@ -42,8 +47,8 @@ function Content() {
     }, []);
 
     return (
-        <Page 
-        narrowWidth>
+        <Page
+            narrowWidth>
 
             <Layout>
                 <Layout.Section >

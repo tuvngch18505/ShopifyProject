@@ -29,13 +29,13 @@ export default function PopoverForBoosterColor() {
 
   //   Cần làm activator
   const activator = (
-    <Box>
-      <Button onClick={togglePopoverActive}></Button>
+    <Box width='40px' minHeight='40px'>
+      <Button onClick={togglePopoverActive} size="large" ></Button>
     </Box>
   );
 
   return (
-    <div style={{}}>
+
       <Popover
         active={popoverActive}
         activator={activator}
@@ -44,6 +44,5 @@ export default function PopoverForBoosterColor() {
       >
         <BoosterColorPicker />
       </Popover>
-    </div>
   );
 }
